@@ -1,9 +1,18 @@
 /// <reference types="cypress" /> 
 
 describe('Adopt Brook Puppy', () => {
-    it('should adopt a puppy with two additional products or services and pay by check', () => {
+    
+    beforeEach("visit home page", () => {
         cy.visit('https://spartantest-puppies.herokuapp.com')
 
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // returning false here prevents Cypress from
+            // failing the test
+            return false
+        })
+    });
+
+    it('should adopt a puppy with two additional products or services and pay by check', () => {
         cy.get(':nth-child(3) > .list_line_odd > .view > .button_to > .rounded_button').click() // clieck view details brook
         cy.get('.rounded_button').click() // adopt me button
         cy.get('#toy').click() // mark chew toy
@@ -18,11 +27,5 @@ describe('Adopt Brook Puppy', () => {
 
         cy.get('.submit > input').click()
         cy.get('#notice').should("be.visible")
-
-        Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test
-            return false
-        })
     })
 })

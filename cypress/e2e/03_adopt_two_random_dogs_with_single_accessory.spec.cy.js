@@ -1,9 +1,18 @@
 /// <reference types="cypress" /> 
 
 describe('Adopt Two Random Dogs With Single Accessory', () => {
-    it('should adopt random puppies with accesory by credit card', () => {
+
+    beforeEach("visit home page", () => {
         cy.visit('https://spartantest-puppies.herokuapp.com')
 
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // returning false here prevents Cypress from
+            // failing the test
+            return false
+        })
+    });
+
+    it('should adopt random puppies with accesory by credit card', () => {
         // cy.get('.next_page').scrollIntoView()
         cy.get(':nth-child(3) > .list_line_odd > .view > .button_to > .rounded_button').click() // clieck view details brook
         cy.get('.rounded_button').click() // adopt me button
@@ -29,11 +38,5 @@ describe('Adopt Two Random Dogs With Single Accessory', () => {
 
         cy.get('.submit > input').click()
         cy.get('#notice').should("be.visible")
-
-        Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test
-            return false
-        })
     })
 })
