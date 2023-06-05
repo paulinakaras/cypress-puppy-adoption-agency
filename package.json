@@ -1,0 +1,23 @@
+{
+  "name": "cypress-puppy-adoption-agency",
+  "version": "1.0.0",
+  "description": "Project includes tests aim to validate the functionality and behavior of the application using the Cypress testing framework, which is based on JavaScript and allows for end-to-end testing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulinakaras/cypress-puppy-adoption-agency.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulinakaras/cypress-puppy-adoption-agency/issues"
+  },
+  "homepage": "https://github.com/paulinakaras/cypress-puppy-adoption-agency#readme",
+  "dependencies": {
+    "cypress": "^12.13.0"
+  }
+}
