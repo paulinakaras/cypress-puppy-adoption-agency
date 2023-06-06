@@ -4,7 +4,8 @@ import { SELECT } from '../constans/common.constans.js'
 import { PUPPY_LIST } from '../constans/puppyList.constans.js'
 import { PUPPY_DETAILS } from '../constans/puppyDetails.constans.js'
 import { PUPPY_ADDITIONAL_PRODUCTS } from '../constans/puppyAdditionalProducts.constans.js'
-import { USER_DETAILS_FORM } from '../constans/userDetailsForm.constans.js'
+
+import { } from '../support/commands.js'
 
 describe('Adoption Puppies Functionality', () => {
 
@@ -30,15 +31,10 @@ describe('Adoption Puppies Functionality', () => {
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.TRAVEL_CARRIER_CHECKBOX).click()
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.COMPLETE_THE_ADOPTION_BUTTON).click()
 
-        cy.get(USER_DETAILS_FORM.NAME_INPUT).type('TestUser')
-        cy.get(USER_DETAILS_FORM.ADDRESS_INPUT).type('TestAddress')
-        cy.get(USER_DETAILS_FORM.EMAIL_INPUT).type('test@email.com')
-        cy.get(USER_DETAILS_FORM.PAY_TYPE_SELECT_LIST).select('Check')
-        cy.get(USER_DETAILS_FORM.PLACE_ORDER_BUTTON).click()
+        cy.typeDefaultUserDetailsWithPaymentMethod(PUPPY_DETAILS.CHECK_PAYMENT_OPTION)
+        cy.placeOrder()
 
-        cy.get(PUPPY_LIST.ADOPTION_MESSAGE)
-            .should("be.visible")
-            .contains("Thank you for adopting a puppy!")
+        cy.verifySuccessfullAdoptionMessage()
     })
 
     it('should adopt a Sparky puppy with Collar & Leash and pay by credit card', () => {
@@ -50,15 +46,10 @@ describe('Adoption Puppies Functionality', () => {
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.COLLAR_AND_LEASH_CHECKBOX).click()
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.COMPLETE_THE_ADOPTION_BUTTON).click()
 
-        cy.get(USER_DETAILS_FORM.NAME_INPUT).type('TestUser')
-        cy.get(USER_DETAILS_FORM.ADDRESS_INPUT).type('TestAddress')
-        cy.get(USER_DETAILS_FORM.EMAIL_INPUT).type('test@email.com')
-        cy.get(USER_DETAILS_FORM.PAY_TYPE_SELECT_LIST).select('Credit card')
-        cy.get(USER_DETAILS_FORM.PLACE_ORDER_BUTTON).click()
+        cy.typeDefaultUserDetailsWithPaymentMethod(PUPPY_DETAILS.CREDIT_CARD_PAYMENT_OPTION)
+        cy.placeOrder()
 
-        cy.get(PUPPY_LIST.ADOPTION_MESSAGE)
-            .should("be.visible")
-            .contains("Thank you for adopting a puppy!")
+        cy.verifySuccessfullAdoptionMessage()
     })
 
     it('should adopt two puppies with Collar & Leash and pay by credit card', () => {
@@ -77,15 +68,10 @@ describe('Adoption Puppies Functionality', () => {
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.COLLAR_AND_LEASH_CHECKBOX).eq(SELECT.SECOND_ELEMENT).click()
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.COMPLETE_THE_ADOPTION_BUTTON).click()
 
-        cy.get(USER_DETAILS_FORM.NAME_INPUT).type('TestUser')
-        cy.get(USER_DETAILS_FORM.ADDRESS_INPUT).type('TestAddress')
-        cy.get(USER_DETAILS_FORM.EMAIL_INPUT).type('test@email.com')
-        cy.get(USER_DETAILS_FORM.PAY_TYPE_SELECT_LIST).select('Credit card')
-        cy.get(USER_DETAILS_FORM.PLACE_ORDER_BUTTON).click()
+        cy.typeDefaultUserDetailsWithPaymentMethod(PUPPY_DETAILS.CREDIT_CARD_PAYMENT_OPTION)
+        cy.placeOrder()
 
-        cy.get(PUPPY_LIST.ADOPTION_MESSAGE)
-            .should("be.visible")
-            .contains("Thank you for adopting a puppy!")
+        cy.verifySuccessfullAdoptionMessage()
     })
 
     it('should adopt two puppies with three accessories and pay by credit card', () => {
@@ -105,14 +91,9 @@ describe('Adoption Puppies Functionality', () => {
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.FIRST_VET_VISIT_CHECKBOX).eq(SELECT.FIRST_ELEMENT).click()
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.COMPLETE_THE_ADOPTION_BUTTON).click()
 
-        cy.get(USER_DETAILS_FORM.NAME_INPUT).type('TestUser')
-        cy.get(USER_DETAILS_FORM.ADDRESS_INPUT).type('TestAddress')
-        cy.get(USER_DETAILS_FORM.EMAIL_INPUT).type('test@email.com')
-        cy.get(USER_DETAILS_FORM.PAY_TYPE_SELECT_LIST).select('Credit card')
-        cy.get(USER_DETAILS_FORM.PLACE_ORDER_BUTTON).click()
+        cy.typeDefaultUserDetailsWithPaymentMethod(PUPPY_DETAILS.CREDIT_CARD_PAYMENT_OPTION)
+        cy.placeOrder()
 
-        cy.get(PUPPY_LIST.ADOPTION_MESSAGE)
-            .should("be.visible")
-            .contains("Thank you for adopting a puppy!")
+        cy.verifySuccessfullAdoptionMessage()
     })
 })

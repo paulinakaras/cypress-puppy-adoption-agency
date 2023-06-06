@@ -1,25 +1,21 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types="cypress" /> 
+
+import { PUPPY_LIST } from '../constans/puppyList.constans.js'
+import { USER_DETAILS_FORM } from '../constans/userDetailsForm.constans.js'
+
+Cypress.Commands.add('typeDefaultUserDetailsWithPaymentMethod', (paymentMethod) => {
+    cy.get(USER_DETAILS_FORM.NAME_INPUT).type('TestUser')
+    cy.get(USER_DETAILS_FORM.ADDRESS_INPUT).type('TestAddress')
+    cy.get(USER_DETAILS_FORM.EMAIL_INPUT).type('test@email.com')
+    cy.get(USER_DETAILS_FORM.PAY_TYPE_SELECT_LIST).select(paymentMethod)
+})
+
+Cypress.Commands.add('placeOrder', () => {
+    cy.get(USER_DETAILS_FORM.PLACE_ORDER_BUTTON).click()
+})
+
+Cypress.Commands.add('verifySuccessfullAdoptionMessage', () => {
+    cy.get(PUPPY_LIST.ADOPTION_MESSAGE)
+        .should("be.visible")
+        .contains("Thank you for adopting a puppy!")
+})
