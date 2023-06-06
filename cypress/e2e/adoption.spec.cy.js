@@ -61,7 +61,7 @@ describe('Adoption Puppies Functionality', () => {
             .contains("Thank you for adopting a puppy!");
     })
 
-    it('should adopt random puppies with accesory by credit card', () => {
+    it('should adopt two puppies with Collar & Leash and pay by credit card', () => {
         cy.get(PUPPY_LIST.BROOK_VIEW_DETAILS_BUTTON).click()
 
         cy.get(PUPPY_DETAILS.ADOPT_ME_BUTTON).click()
