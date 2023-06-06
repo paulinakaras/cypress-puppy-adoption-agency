@@ -4,6 +4,7 @@ Project includes tests aim to validate the functionality and behavior of the app
 
 ## Useful commands
 
+- `npm install` - install all required dependencies
 - `npx cypress open` - opens inital cypress web view
 - `npx cypress run` - run all tests
 - `npx cypress run -b chrome` - run all tests with chrome web browser
