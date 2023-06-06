@@ -52,15 +52,15 @@ describe('Adoption Puppies Functionality', () => {
         cy.verifySuccessfullAdoptionMessage()
     })
 
-    it('should adopt two puppies with Collar & Leash and pay by credit card', () => {
-        cy.get(PUPPY_LIST.BROOK_VIEW_DETAILS_BUTTON).click()
+    it('should adopt two random puppies with Collar & Leash and pay by credit card', () => {
+        cy.get(PUPPY_LIST.VIEW_DETAILS_BUTTON).eq(getRandomPuppyNumber()).click()
 
         cy.get(PUPPY_DETAILS.ADOPT_ME_BUTTON).click()
 
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.ADOPT_ANOTHER_PUPPY_BUTTON).click()
 
         cy.get(PUPPY_LIST.NEXT_PAGE_BUTTON).click()
-        cy.get(PUPPY_LIST.SPARKY_VIEW_DETAILS_BUTTON).click()
+        cy.get(PUPPY_LIST.VIEW_DETAILS_BUTTON).eq(getRandomPuppyNumber()).click()
 
         cy.get(PUPPY_DETAILS.ADOPT_ME_BUTTON).click()
 
@@ -74,15 +74,15 @@ describe('Adoption Puppies Functionality', () => {
         cy.verifySuccessfullAdoptionMessage()
     })
 
-    it('should adopt two puppies with three accessories and pay by credit card', () => {
-        cy.get(PUPPY_LIST.BROOK_VIEW_DETAILS_BUTTON).click()
+    it('should adopt two random puppies with three accessories and pay by credit card', () => {
+        cy.get(PUPPY_LIST.VIEW_DETAILS_BUTTON).eq(getRandomPuppyNumber()).click()
 
         cy.get(PUPPY_DETAILS.ADOPT_ME_BUTTON).click()
 
         cy.get(PUPPY_ADDITIONAL_PRODUCTS.ADOPT_ANOTHER_PUPPY_BUTTON).click()
 
         cy.get(PUPPY_LIST.NEXT_PAGE_BUTTON).click()
-        cy.get(PUPPY_LIST.SPARKY_VIEW_DETAILS_BUTTON).click()
+        cy.get(PUPPY_LIST.VIEW_DETAILS_BUTTON).eq(getRandomPuppyNumber()).click()
 
         cy.get(PUPPY_DETAILS.ADOPT_ME_BUTTON).click()
 
@@ -96,4 +96,8 @@ describe('Adoption Puppies Functionality', () => {
 
         cy.verifySuccessfullAdoptionMessage()
     })
+
+    function getRandomPuppyNumber() {
+        return Math.floor(Math.random() * 4);
+    }
 })
