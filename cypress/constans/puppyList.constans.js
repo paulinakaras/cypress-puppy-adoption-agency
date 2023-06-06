@@ -5,4 +5,4 @@ export const PUPPY_LIST = {
     NEXT_PAGE_BUTTON: '[class="next_page"]',
 
     ADOPTION_MESSAGE: '[id="notice"]'
-};
+}
