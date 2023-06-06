@@ -1,9 +1,9 @@
 /// <reference types="cypress" /> 
 
-import { SELECT } from '../constans/common.constans.js'
-import { PUPPY_LIST } from '../constans/puppyList.constans.js'
-import { PUPPY_DETAILS } from '../constans/puppyDetails.constans.js'
-import { PUPPY_ADDITIONAL_PRODUCTS } from '../constans/puppyAdditionalProducts.constans.js'
+import { SELECT } from '../fixtures/common/constans.js'
+import { PUPPY_LIST } from '../fixtures/pages/puppyList.js'
+import { PUPPY_DETAILS } from '../fixtures/pages/puppyDetails.js'
+import { PUPPY_ADDITIONAL_PRODUCTS } from '../fixtures/pages/puppyAdditionalProducts.js'
 
 import { } from '../support/commands.js'
 
