@@ -9,4 +9,3 @@ Project includes tests aim to validate the functionality and behavior of the app
 - `npx cypress run -b chrome` - run all tests with chrome web browser
 - `npx cypress run -h` list all possible properties for run command
 - `npx cypress run -s cypress/e2e/*` runs all tests located in cypress/e2e/ folder
-- `npx cypress run -s cypress/e2e/01_adopt_brook_puppy.spec.cy.js` run all tests for 01_adopt_brook_puppy.spec.cy.js file
